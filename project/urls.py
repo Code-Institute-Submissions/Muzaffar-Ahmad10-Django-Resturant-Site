@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from resturant_app import views as index_views
+from blog import views as blog_views
 
 urlpatterns = [
-    path('hello', index_views.index, name='index'),
+    path("blog/", blog_views.my_blog, name='blog'),
     path('admin/', admin.site.urls),
 ]
