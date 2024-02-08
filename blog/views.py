@@ -19,5 +19,5 @@ def aboutus(request):
 def signup(request):
     return render(request,'signup.html')
 
-def reservation(request):
+def reservation(request): 
     return render(request,'reservation.html')        
