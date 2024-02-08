@@ -1,0 +1,96 @@
+{% url 'home' as home_url %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Custom CSS -->
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html">
+            <h1 id="logo">Lahore Foods</h1>
+        </a>
+        <input type="checkbox" id="nav-toggle" name="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+            <nav>
+                <ul id="menu">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="signup.html" class="active">Sign up</a>
+                    </li>
+                    <li>
+                        <a href="reservation.html">Reservation</a>
+                    </li>
+                </ul>
+            </nav>
+        
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <div class="login-page">
+            <div class="sign-form">
+              <form class="register-form">
+                <input type="text" placeholder="name"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+              </form>
+              <form class="login-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button>login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+              </form>
+            </div>
+          </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section>
+        <ul class="social-networks">
+        
+        <ul id="social-networks">
+        <li>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                aria-label="Visit our Facebook page (opens in a new tab)">
+                <i class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li>
+            <a href="https://www.twitter.com/" target="_blank" rel="noopener"
+                aria-label="Visit our Twitter page (opens in a new tab)">
+                <i class="fa-brands fa-twitter-square"></i></a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                aria-label="Visit our Instagram page (opens in a new tab)">
+                <i class="fa-brands fa-instagram"></i></a>
+        </li>
+    </ul>
+</section>
+</footer>
+    <!----font awesome script----->
+        <script src="https://kit.fontawesome.com/2dc8c74b0a.js" crossorigin="anonymous"></script>
+</body>
+</html>

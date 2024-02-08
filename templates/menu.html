@@ -1,0 +1,156 @@
+{% url 'home' as home_url %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!----stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html">
+            <h1 id="logo">Lahore Foods</h1>
+        </a>
+        <input type="checkbox" id="nav-toggle" name="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+            <nav>
+                <ul id="menu">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="menu.html" class="active">Menu</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="signup.html">Sign up</a>
+                    </li>
+                    <li>
+                        <a href="reservation.html">Reservation</a>
+                    </li>
+                </ul>
+            </nav>
+        
+    </header>
+
+    <!-- Main content -->
+    <section id="wall-color">
+        <!--food Menu-->
+        <h1 id="headind1">Menu</h1>
+        <div id="detail">
+            <ol>
+                <li>
+                    <p>Pizza</p>
+                    
+                    <p> we have 5 types of pizzas normaly customres are like to eat chicken pizza with bell pepper, (we
+                        offer normal size pizza)<br>
+                        101 : Chicken Pizza - - €9.50<br>
+                        102 : Vegetabel pizza -- €8.50<br>
+                        103 : Donner Pizza - - €9.00<br>
+                        104 : Fish Pizza - - €9.50<br>
+                        105 : Scampi Pizza - - €10.50<br>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>Rice</p>
+                    
+                    <p> We would like to offer some rice verieties, (one person) <br>
+                        201 : Chicken Rice (biryani) -- €16.50<br>
+                        202 : Mutton Rice (biryani) -- €18.00<br>
+                        203 : Chines Rice -- €15.00<br>
+                        204 : Egg Fried Rice - €18.00<br>
+                        205 : scampi Rice - €16.00<br>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>Curry</p>
+                    
+                    <p> The curry spice mixture is used to season the curry dishes of the same name made from
+                        vegetables, meat or fish.<br>
+                        301 : Mutton Curry -- €14.50<br>
+                        302 : Chicken Curry -- €10.00<br>
+                        303 : vegetable Curry -- €10.50<br>
+                        304 : Fish Curry -- €12.50<br>
+                        305 : Beef Curry -- €14.00<br>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>Sweets</p>
+                    
+                    <p> we are offers some Asian Sweet dishes with dry fruits,<br>
+                        401 : Kheer (rice & Milk) -- €8.00<br>
+                        402 : Custard With Dry fruits topping -- €9.00<br>
+                        403 : Chocolate Cake -- €9.00<br>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>Ice cream</p>
+                    
+                    <p> Ice Menu <br>
+                        501 : Vanilla Ice -- €4.00<br>
+                        502 : Chocolate Ice -- €4.00<br>
+                        503 : Strawberry Ice -- €4.30<br>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>Drinks </p>
+                    
+                    <p>
+                        601 : Coca Cola -- €2.30<br>
+                        602 : Sprit -- €2.30<br>
+                        603 : Fanta -- €2.30<br>
+                        604 : Apple Saft -- €3.30<br>
+                        605 : Orange Juice -- €3.30<br>
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <section>
+        <ul class="social-networks">
+        
+        <ul id="social-networks">
+        <li>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                aria-label="Visit our Facebook page (opens in a new tab)">
+                <i class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li>
+            <a href="https://www.twitter.com/" target="_blank" rel="noopener"
+                aria-label="Visit our Twitter page (opens in a new tab)">
+                <i class="fa-brands fa-twitter-square"></i></a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                aria-label="Visit our Instagram page (opens in a new tab)">
+                <i class="fa-brands fa-instagram"></i></a>
+        </li>
+    </ul>
+</section>
+</footer>
+    <!----font awesome script----->
+        <script src="https://kit.fontawesome.com/2dc8c74b0a.js" crossorigin="anonymous"></script>
+</body>
+</html>
