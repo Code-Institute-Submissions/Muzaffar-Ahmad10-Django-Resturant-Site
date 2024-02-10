@@ -9,12 +9,12 @@ from .views import reservation
 
 
 urlpatterns = [
-    path("", my_blog, name='blog'),
-    path("menu/", menu, name='menu.html'),
-    path("gallery/", gallery, name='gallery.html'),
-    path("aboutus/", aboutus, name='aboutus.html'),
-    path("signup/", signup, name='signup.html'),
-    path("reservation/", reservation, name='reservation.html'),
+    path("", my_blog, name='home'),
+    path("menu/", menu, name='menu'),
+    path("gallery/", gallery, name='gallery'),
+    path("aboutus/", aboutus, name='aboutus'),
+    path("signup/", signup, name='signup'),
+    path("reservation/", reservation, name='reservation'),
 
 
 ]
