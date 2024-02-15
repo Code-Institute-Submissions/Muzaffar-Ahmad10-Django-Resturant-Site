@@ -21,16 +21,17 @@ def signup(request):
     return render(request,'signup.html')
 
 def reservation(request): 
-    if request.method == 'post':
-        name = request.post.get('name')
-        email = request.post.get('email')
-        number = request.post.get('number')
-        date = request.post.get('date')
-        person = request.post.get('person')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        number = request.POST.get('number')
+        date = request.POST.get('date')
+        person = request.POST.get('person')
 
         if name !='' and email !='' and number !='' and date !='' and person !='': 
 
             data = book_tabel(Name=name,Email=email,Number=number,Date=date,Person=person)
+            print(data)
             data.save()
  
 

@@ -49,7 +49,7 @@
     <!-- Main content -->
     <main>
         <div class="testbox">
-            <form action="/" method="post" >{% csrf_token %}
+            <form method="post" >{% csrf_token %}
               <div class="banner">
                 <h1>Tabel Reservation</h1>
               </div>
@@ -62,18 +62,17 @@
                 <input id="email" type="email" name="email" required/>
               </div>
               <div class="item">
-                <label for="attendees">Number of Persons <span>*</span></label>
-                <input id="attendess" type="text" name="attendees" required/>
+                <label for="person">Number of Persons <span>*</span></label>
+                <input id="person" type="text" name="person" required/>
               </div>
               
-              
               <div class="item">
-                <label for="phone">Phone<span>*</span></label>
-                <input id="phone" type="number" placeholder="(XXX) XXX-XXXX"  name="phone" required/>
+                <label for="number">Phone<span>*</span></label>
+                <input id="number" type="number" placeholder="(XXX) XXX-XXXX"  name="number" required/>
               </div>
               <div class="item">
                 <label for="bdate">Date<span>*</span></label>
-                <input id="bdate" type="date" name="bdate" required/>
+                <input id="bdate" type="date" name="date" required/>
                 
               </div>
               <div class="flax">
