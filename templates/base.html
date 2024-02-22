@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://icons8.com/icon/sGQrCz1ti5x7/favorite">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <!-- Css Linking -->
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+     
+     <title>{% block title %}{% endblock title %}</title>
+        
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <h1>Lahoor Foods</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'homepage' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menus</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{% url 'food_menu' %}">Food Menu</a>
+                            <a class="dropdown-item" href="{% url 'drinks_menu' %}">Drinks Menu</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog_post_list' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}"><button class="btn btn-sm btn-warning">Logout as {{ request.user.username }}</button></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}"><button class="btn btn-sm btn-primary">Register</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}"><button class="btn btn-sm btn-success">Login</button></a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    {% block content %}
+        
+    {% endblock content %}
+    <hr class="bg-white" id="hr-line">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <p class="text-light">Follow us:</p>
+          </div>
+          <div class="col-auto">
+            <a href="https://www.facebook.com/login.php/" class="text-decoration-none text-light"><i class="fab fa-facebook fa-lg me-2"></i> Facebook</a>
+          </div>
+          <div class="col-auto">
+            <a href="#" class="text-decoration-none text-light"><i class="fab fa-twitter fa-lg me-2"></i> Twitter</a>
+          </div>
+          <div class="col-auto">
+            <a href="#" class="text-decoration-none text-light"><i class="fab fa-instagram fa-lg me-2"></i> Instagram</a>
+          </div>
+          <div class="col-auto">
+            <a href="#" class="text-decoration-none text-light"><i class="fab fa-linkedin fa-lg me-2"></i> LinkedIn</a>
+          </div>
+          <div class="col-auto">
+            <a href="#" class="text-decoration-none text-light"><i class="fab fa-youtube fa-lg me-2"></i> YouTube</a>
+          </div>
+        </div>
+      </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container text-center">
+                <p>&copy; 2024 Lahoor Foods. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

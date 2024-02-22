@@ -3,13 +3,13 @@
 
 
 {% block title %}
-    Signup
+    Login
 {% endblock title %}
     
 
 {% block content %}
 <div class="text-center mt-5 mb-3">
-    <h1>Lahoor Foods Signup Form</h1>
+    <h1>Lahoor Foods Login Form</h1>
 </div>
 {% if messages %}
 {% for m in messages %}
@@ -22,7 +22,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Signup Here</div>
+                <div class="card-header">Login Here</div>
                 <div class="card-body">
                     <form method="post">
                         {% csrf_token %}
@@ -31,18 +31,10 @@
                             <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
-                        </div>
-                        <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Confirm Password</label>
-                            <input type="password" class="form-control" id="password" name="password1" placeholder="Password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </form>
                 </div>
             </div>
@@ -50,8 +42,8 @@
     </div>
 </div>
 <div class="text-center mt-5 mb-3">
-    <h1>Register you Account with us.</h1>
-    <h3>In Fab we usually have coupons code for new users.</h3>
+    <h1>Get Instant Support</h1>
+    <h3>If you have any issue you can use the contact us form to contact us.</h3>
 </div>
 {% endblock content %}
     

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    single post
+{% endblock title %}
+    
+
+{% block content %}
+<div class="text-center mt-5 mb-3">
+    <h1>{{ blog_post.title }}</h1>
+</div>
+{% if messages %}
+{% for m in messages %}
+<div class="message-card">
+    <h4>{{m}}</h4>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="container">
+    <div class="card mt-2 mb-5">
+      <div class="card-header">
+        <h5 class="card-title">{{ blog_post.title | title }}</h5>
+        <p class="card-subtitle text-muted">Updated at: {{ blog_post.updated_at }}</p>
+        <p class="card-subtitle text-muted">Author: {{ blog_post.author }}</p>
+      </div>
+      <div class="text-center mt-2 mb-2 card-header">
+        <img src="{{ blog_post.image.url }}" alt="{{ blog_post.title }}" height="400px" width="auto">
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ blog_post.content }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+    

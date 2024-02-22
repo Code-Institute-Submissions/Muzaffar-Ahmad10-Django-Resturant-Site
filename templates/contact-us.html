@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Contact Us
+{% endblock title %}
+    
+
+{% block content %}
+<div class="text-center mt-5 mb-3">
+    <h1>Lahoor Foods Contact Us Form</h1>
+</div>
+{% if messages %}
+{% for m in messages %}
+<div class="message-card">
+    <h4>{{m}}</h4>
+</div>
+{% endfor %}
+{% endif %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <!-- Contact Form -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Contact through this form</div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" name="message" id="message" cols="30" rows="5" placeholder="Write your message here ..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Google Map Card -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Find us on the map</div>
+                <div class="card-body">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.9197330111376!2dYOUR_LONGITUDE!3dYOUR_LATITUDE!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3AYOUR_COMPANY_NAME!2sYOUR_COMPANY_NAME!5e0!3m2!1sen!2sus!4v1614159612422!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="text-center mt-5 mb-3">
+    <h1>Get Instant Support</h1>
+    <h3>If you have any issue you can use the above form to get fast reply.</h3>
+</div>
+{% endblock content %}
+    
