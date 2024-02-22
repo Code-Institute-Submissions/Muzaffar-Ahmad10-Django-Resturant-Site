@@ -1,54 +1,18 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from blog.models import book_tabel
+from django.core.paginator import Paginator
+from .models import BlogPost
+
+
+def blog_post_list(request):
+    blog_posts = BlogPost.objects.all().order_by('-created_at')
+    paginator = Paginator(blog_posts, 2)  # 9 posts per page (3 columns * 3 rows)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'blog-list.html', {'page_obj': page_obj})
 
 
 
-# Create your views here.
-
-
-def my_blog(request):
-    return render(request,'home.html')
-
-def menu(request):
-    return render(request,'menu.html') 
-
-def gallery(request):
-    return render(request,'gallery.html')          
-
-def aboutus(request):
-    return render(request,'aboutus.html') 
-
-def signup(request):
-    return render(request,'signup.html')
-
-def reservation(request): 
-    if request.method == 'POST':
-        print(request.POST)
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        number = request.POST.get('number')
-        date = request.POST.get('date')
-        person =  request.POST.get('person')
-        start_time = request.POST.get('start_time')
-        end_time = request.POST.get('end_time')
-        instructions = request.POST.get('instructions')
-        
-        
-
-        if name !='' and email !='' and number !='' and date !='' and person !='':  
-
-            data = book_tabel.objects.create(
-                Name=name,
-                Email=email,
-                Number=number,
-                Date=date,
-                Person=person,
-                start_time=start_time,
-                end_time=end_time,
-                instructions=instructions)
-            # print(data)
-            # data.save()
- 
-
-    return render(request,'reservation.html')     
+def single_post(request, id):
+    blog_post = BlogPost.objects.filter(id=id).first()
+    print(blog_post)
+    return render(request, 'single-post.html', {'blog_post': blog_post})

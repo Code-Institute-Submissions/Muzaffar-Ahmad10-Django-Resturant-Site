@@ -1,6 +1,4 @@
 from django.contrib import admin
-from blog.models import book_tabel
+from .models import BlogPost
 
-# Register your models here.
-
-admin.site.register(book_tabel)
+admin.site.register(BlogPost)
