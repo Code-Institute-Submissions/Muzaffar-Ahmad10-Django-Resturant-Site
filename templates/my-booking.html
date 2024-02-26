@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Booking
+{% endblock title %}
+    
+
+{% block content %}
+    {% if messages %}
+    {% for m in messages %}
+    <div class="message-card mt-4">
+        <h4>{{m}}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container mt-5 mb-5 d-flex justify-content-center">
+      {% for booking in bookings %}
+        <div class="card ml-3 mr-3" style="width: 450px;">
+          <div class="card-body p-4">
+            <h5 class="card-title">You have reserved this table you can edit & cancel it anytime</h5>
+            <div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-info text-light"><i class="fas fa-user"></i></span>
+                  </div>
+                  <label for="name" class="sr-only">Name</label>
+                  <input type="text" class="form-control" id="person-name-{{ booking.id }}" name="person-name" value="{{ booking.person_name }}" readonly>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-success text-light"><i class="fas fa-phone"></i></span>
+                  </div>
+                  <label for="phone-number" class="sr-only">Phone Number</label>
+                  <input type="tel" class="form-control" value="{{ booking.person_number }}" readonly>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-warning text-light"><i class="fas fa-envelope"></i></span>
+                  </div>
+                  <label for="email-address" class="sr-only">Email</label>
+                  <input type="email" class="form-control" value="{{ booking.person_email }}" readonly>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-secondary text-light"><i class="fas fa-users"></i></span>
+                  </div>
+                  <label for="inputState" class="sr-only">Guest Count</label>
+                  <input type="text" class="form-control" value="{{ booking.guest_count }}" readonly>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary text-light"><i class="fas fa-chair"></i></span>
+                  </div>
+                  <label for="inputState" class="sr-only">Selected Table</label>
+                  <input type="text" class="form-control" value="{{ booking.guest_table }}" readonly>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-danger text-light"><i class="far fa-calendar-alt"></i></span>
+                    </div>
+                    <label for="datePicker" class="sr-only">Select Date</label>
+                    <input type="text" class="form-control" value="{{ booking.requested_date }}" readonly>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-dark text-light"><i class="far fa-clock"></i></span>
+                    </div>
+                    <label for="timePicker" class="sr-only">Time</label>
+                    <input type="text" class="form-control" value="{{ booking.requested_time }}" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <button type="button" class="btn btn-warning btn-block edit-button" 
+                        data-toggle="modal" data-target="#editbookingmodal"
+                        data-booking-id="{{ booking.id }}"
+                        data-person-name="{{ booking.person_name }}"
+                        data-person-number="{{ booking.person_number }}"
+                        data-person-email="{{ booking.person_email }}"
+                        data-guest-count="{{ booking.guest_count }}"
+                        data-guest-table="{{ booking.guest_table }}"
+                        data-requested-date="{{ booking.requested_date }}"
+                        data-requested-time="{{ booking.requested_time }}">Edit</button>
+              </div>
+              <div class="col-md-4 d-flex float-right">
+                <button type="button" onClick="deleteBooking('{{booking.id}}', '{{booking.person_name}}')" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deletebookingmodal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editbookingmodal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="bookingModalLabel">Edit Booking</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="edit-person-name" name="person-name" required>
+                </div>
+                <input type="hidden" name="edit-booking">
+                <div class="form-group col-md-6">
+                  <label for="phone-number">Phone Number</label>
+                  <input type="tel" class="form-control" id="edit-phone-number" name="person-number" placeholder="e.g., 0347-xxx-xxxxx" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email-address">Email</label>
+                <input type="email" class="form-control" id="edit-person-email" name="person-email" placeholder="e.g., example@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="guest-count">Guest Count</label>
+                <select id="edit-guest-count" class="form-control" name="guest-count" required>
+                  <option value="1 guest">1 Guest</option>
+                  <option value="2 guests">2 Guests</option>
+                  <option value="3 guests">3 Guests</option>
+                  <option value="4 guests">4 Guests</option>
+                  <option value="5 guests">5 Guests</option>
+                  <option value="6 guests">6 Guests</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="guest-table">Select Table</label>
+                <select id="edit-guest-table" class="form-control" name="guest-table" required>
+                  <option value="Indoor 1">Indoor 1</option>
+                  <option value="Indoor 2">Indoor 2</option>
+                  <option value="Indoor 3">Indoor 3</option>
+                  <option value="Window 1">Window 1</option>
+                  <option value="Window 2">Window 2</option>
+                  <option value="Outdoor 1">Outdoor 1</option>
+                  <option value="Outdoor 2">Outdoor 2</option>
+                  <option value="Outdoor 3">Outdoor 3</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="edit-datePicker">Select Date</label>
+                  <input type="date" class="form-control" name="requested-date" id="edit-datePicker" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="edit-timePicker">Time</label>
+                  <input type="time" class="form-control" name="requested-time" id="edit-timePicker" required>
+                </div>
+              </div>
+              <input type="hidden" id="edit-booking-id" name="edit-booking-id">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- delete Modal -->
+    <div class="modal fade" id="deletebookingmodal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="bookingModalLabel">You are cancelling your booking <span id="delete-person-name"></span></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post">
+              {% csrf_token %}
+              <p>You are about to cancel your booking, please confirm one time if you are cancelling the right table.</p>
+              <p><strong>- <span id="delete-person-name2"></span></strong>, We are sorry to see you can contact our managers throuhg our contact us page.</p>
+              <input type="hidden" name="delete-booking">
+              <input type="hidden" name="delete-booking-id" id="delete-booking-id" value="">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">Cancel Booking</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  
+    <script>
+
+      function editBooking(button) {
+        var id = button.getAttribute('data-booking-id');
+        var name = button.getAttribute('data-person-name');
+        var number = button.getAttribute('data-person-number');
+        var email = button.getAttribute('data-person-email');
+        var guest_count = button.getAttribute('data-guest-count');
+        var table = button.getAttribute('data-guest-table');
+        var date = button.getAttribute('data-requested-date');  // Corrected attribute name
+        var time = button.getAttribute('data-requested-time');  // Corrected attribute name
+        
+        document.getElementById('edit-booking-id').value = id;
+        document.getElementById('edit-person-name').value = name;
+        document.getElementById('edit-phone-number').value = number;
+        document.getElementById('edit-person-email').value = email;
+        document.getElementById('edit-guest-count').value = guest_count;
+        document.getElementById('edit-guest-table').value = table;
+        document.getElementById('edit-datePicker').value = date;
+        document.getElementById('edit-timePicker').value = time;
+    }
+    
+    var editButtons = document.querySelectorAll('.edit-button');
+    editButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            editBooking(button);
+        });
+    });
+
+    function deleteBooking(id, name) {
+      const span_name = document.getElementById('delete-person-name');
+      const span_name2 = document.getElementById('delete-person-name2');
+      const delete_booking_id = document.getElementById('delete-booking-id');
+
+      span_name.textContent = name;
+      span_name2.textContent = name;
+      delete_booking_id.value = id;
+
+    }
+    </script>
+  
+    
+{% endblock content %}
