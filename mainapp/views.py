@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import *
+from django.contrib.auth.decorators import login_required
 
 
 #homepage rendering
