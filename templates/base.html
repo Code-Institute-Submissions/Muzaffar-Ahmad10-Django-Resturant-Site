@@ -45,7 +45,15 @@
                         <a class="nav-link" href="{% url 'blog_post_list' %}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Book</a>
+                        <a class="nav-link" href="{% url 'booking_page' %}">Book</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'my_booking' %}">My Bookings</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about_us_page' %}">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>
