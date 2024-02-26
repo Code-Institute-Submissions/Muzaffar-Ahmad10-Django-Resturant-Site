@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Booking
+{% endblock title %}
+    
+
+{% block content %}
+    {% if messages %}
+    {% for m in messages %}
+    <div class="message-card mt-4">
+        <h4>{{m}}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card" style="width: 450px;">
+          <div class="card-body p-4">
+            <h5 class="card-title">Book the tables for your loved ones</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="person-name" placeholder="Your good name..." required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="phone-number">Phone Number</label>
+                    <input type="number" class="form-control" name="phone-number" id="phone-number" placeholder="0347-xxx-xxxxx" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email-address">Email</label>
+                  <input type="email" class="form-control" name="person-email" id="email-address" placeholder="My@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputState">Guest Count</label>
+                    <select id="inputState" class="form-control" name="guest-count">
+                      <option selected>Guests Selection</option>
+                      <option>1 Guest</option>
+                      <option>2 Guests</option>
+                      <option>3 Guests</option>
+                      <option>4 Guests</option>
+                      <option>5 Guests</option>
+                      <option>6 Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputState">Select Table</label>
+                    <select id="inputState" class="form-control" name="guest-table">
+                      <option selected>Tables Selection</option>
+                      <option>Indoor 1</option>
+                      <option>Indoor 2</option>
+                      <option>Indoor 3</option>
+                      <option>window 1</option>
+                      <option>window 2</option>
+                      <option>Outdoor 1</option>
+                      <option>Outdoor 2</option>
+                      <option>Outdoor 3</option>
+                      
+                    </select>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="datePicker" class="form-label">Select Date</label>
+                    <input type="date" class="form-control datepicker" name="requested-date" id="datePicker" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="timePicker" class="form-label">Time</label>
+                    <input type="time" class="form-control timepicker" name="requested-time" id="timePicker" required>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-success">Book it</button>
+              </form>
+          </div>
+        </div>
+      </div>
+
+  
+{% endblock content %}
