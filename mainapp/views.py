@@ -91,3 +91,88 @@ def food_menu(request):
 #drink menu
 def drinks_menu(request):
     return render(request, 'drinks-menu.html')
+
+#about us page rendering
+def about_us_page(request):
+    return render(request, 'about-us.html')
+
+
+#Booking page functionality
+@login_required(login_url="/login/")
+def booking_page(request):
+    if request.method == "POST":
+        person_name = request.POST.get('person-name')
+        person_number = request.POST.get('phone-number')
+        person_email = request.POST.get('person-email')
+        guest_count = request.POST.get('guest-count')
+        guest_table = request.POST.get('guest-table')
+        requested_date = request.POST.get('requested-date')
+        requested_time = request.POST.get('requested-time')
+
+        if guest_count == "Guests Selection":
+            messages.error(request, "Please select the right guest count.")
+            return redirect('booking_page')
+        if guest_table == "Tables Selection":
+            messages.error(request, "Please select the right table.")
+            return redirect('booking_page')
+
+        current_user = request.user
+        Booking.objects.create(
+            user=current_user,
+            person_name=person_name,
+            person_email=person_email,
+            person_number=person_number,
+            guest_count=guest_count,
+            guest_table=guest_table,
+            requested_date=requested_date,
+            requested_time=requested_time
+        )
+        messages.success(request, "Your table has been successfully reserved.")
+        return redirect('booking_page')
+
+    return render(request, 'booking.html')
+
+
+#checking user it own tables and bookings
+@login_required(login_url="/login/")
+def my_booking(request):
+    user = request.user
+    user_bookings = Booking.objects.filter(user=user)
+
+    if request.method == 'POST':
+        try:
+            if "edit-booking" in request.POST:
+                booking_id = request.POST.get('edit-booking-id')
+                get_booking = Booking.objects.get(id=booking_id)
+
+                person_name = request.POST.get('person-name')
+                person_number = request.POST.get('person-number')
+                person_email = request.POST.get('person-email')
+                guest_count = request.POST.get('guest-count')
+                guest_table = request.POST.get('guest-table')
+                requested_date = request.POST.get('requested-date')
+                requested_time = request.POST.get('requested-time')
+
+                get_booking.person_name = person_name
+                get_booking.person_email = person_email
+                get_booking.person_number = person_number
+                get_booking.guest_count = guest_count
+                get_booking.guest_table = guest_table
+                get_booking.requested_date = requested_date
+                get_booking.requested_time = requested_time
+
+                get_booking.save()
+                messages.success(request, "Your table reservation has been edited successfully")
+                return redirect('my_booking')
+            elif "delete-booking" in request.POST:
+                booking_id = request.POST.get('delete-booking-id')
+                get_booking = Booking.objects.get(id=booking_id)
+                get_booking.delete()
+                messages.success(request, "Your table reservation has been deleted successfully.")
+                return redirect('my_booking')
+        except:
+            messages.error(request, "Something went wrong, Please try again.")
+            return redirect('my_booking')
+
+    context = {'bookings': user_bookings}
+    return render(request, 'my-booking.html', context)
