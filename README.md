@@ -19,7 +19,8 @@
   - [Technologies Used](#technologies-used)
   - [Features](#features) 
   - [Deploying to Heroku](#deploying-to-heroku)
-
+  - [Credits](#credits)
+  - [Acknowledgements](#acknowledgements)
 
 
 ### About
