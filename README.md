@@ -11,18 +11,15 @@
   - [User Experience](#user-experience)
   - [User Stories](#user-stories)
   - [Design](#design)
-    - [Colours](#colours)
-    - [Fonts](#fonts)
-    - [Structure](#structure)
-      - [Website pages](#website-pages)
-      - [Database](#database)
+  - [Colours](#colours)
+  - [Fonts](#fonts)
+  - [Structure](#structure)
+  - [Website pages](#website-pages)
+  - [Database](#database)
   - [Technologies Used](#technologies-used)
-  - [Features](#features)
-  - 
-  - 
-  - 
+  - [Features](#features) 
   - [Deploying to Heroku](#deploying-to-heroku)
-  - 
+
 
 
 ### About
@@ -193,3 +190,15 @@ It is strongly recommended to deploy a Django project early in order to address 
 12. Within the Deployment section on Heroku's platform, I selected Github as the Deployment method, enabled Automated Deployment, located my Github repository, linked it to my Heroku application, and initiated the deployment process by clicking on Deploy Branch located at the bottom of the page.
 13. I have successfully saved my modifications on all of my files and executed the commands git add, git commit, and git push.
 14. After enabling automatic deployment in Heroku, I patiently awaited the completion of my app's construction. Once it was ready, I accessed it and meticulously verified the smooth functioning of all its features.
+
+## Credits
+### Images
+- The images utilized were obtained from the website pixabay free photos.com.
+### Code
+- The Bootstrap dark navigation theme was implemented in conjunction with Bootstrap classes and a carousel.
+
+## Acknowledgements
+#### I would like to express my gratitude to the individuals listed below.
+- I am grateful to my mentor Mo Shami for providing feedback, advice, guidance, and support.
+- I am grateful to my friend for his assistance, guidance, testing help. 
+- To the wonderful individuals within the Code Institute and Slack community.
