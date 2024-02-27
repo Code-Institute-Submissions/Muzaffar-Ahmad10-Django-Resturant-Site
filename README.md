@@ -140,6 +140,7 @@ The website comprises of the subsequent pages.
 - jQuery
 - Postgres
 - pixabay free photos
+- Bootstrap
 
 
 ## Features
