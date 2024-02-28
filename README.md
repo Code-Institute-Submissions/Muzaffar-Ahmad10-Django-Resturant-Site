@@ -18,6 +18,8 @@
   - [Database](#database)
   - [Technologies Used](#technologies-used)
   - [Features](#features) 
+  - [Wireframes](#wireframes)
+  - [Testing](#testing)
   - [Deploying to Heroku](#deploying-to-heroku)
   - [Credits](#credits)
   - [Acknowledgements](#acknowledgements)
@@ -117,7 +119,10 @@ The website comprises of the subsequent pages.
 - The edit booking feature enables users to modify their reservation details, including the date, time, table, and number of guests.
 - The cancellation of a booking enables the user to terminate their reservation.
 - Users can utilize the Login/Logout feature to access their accounts, enabling them to make bookings as well as view, edit, and delete existing bookings.
-
+ 
+ ### Wireframes
+ #### Divergence from the original concepts.
+ - I originally intended to create my own HTML pages and CSS styling, however, I decided to use a standard Bootstrap theme instead, which saved me a huge amount of time. I simply followed the theme layout, customized text labels for various forms, so the original wireframes were not used at all. As the theme is fully responsive, I didn't create mobile device wireframes after deciding to use Bootstrap. By using a Boostrap theme, my theme is more unified, too. I also created a menu page for the site, which wasn't in my original plans.
 
 
 
@@ -171,10 +176,24 @@ The website comprises of the subsequent pages.
 - The user is given the option to cancel their booking and is prompted to confirm their decision.
 - Upon canceling the table booking, the customer will be able to view the confirmation message at the top of the screen and will be required to confirm the cancellation.
 
+
+
+
+
 ## Testing
 - Both css files are clears, 
 - [W3C CSS Validator](static/docs/css-file-1.jpeg)
 - [W3C CSS Validator](static/docs/css-file-2.jpeg)
+
+### Testing User Stories from User Experience (UX) Section
+
+- As a newcomer to the website, I aim to effortlessly grasp the primary objective of the site and delve deeper into the details of the resturant.
+- Upon arrival at the website, visitors are promptly welcomed by a sleek and user-friendly navigation bar, allowing them to effortlessly navigate to their desired page.
+- users are able to select the page, 
+- users are able to see the food and drink menu
+- users are able to create an account for table booking, 
+- users can see the confirmation notification, edit and cancel booking,
+ 
 
 ### Deploying to Heroku
 
