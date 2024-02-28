@@ -171,7 +171,10 @@ The website comprises of the subsequent pages.
 - The user is given the option to cancel their booking and is prompted to confirm their decision.
 - Upon canceling the table booking, the customer will be able to view the confirmation message at the top of the screen and will be required to confirm the cancellation.
 
-
+## Testing
+- Both css files are clears, 
+- [W3C CSS Validator](static/docs/css-file-1.jpeg)
+- [W3C CSS Validator](static/docs/css-file-2.jpeg)
 
 ### Deploying to Heroku
 
