@@ -216,6 +216,25 @@ The website comprises of the subsequent pages.
 - users are able to create an account for table booking, 
 - users can see the confirmation notification, edit and cancel booking,
  
+### Device Testing & Browser compatibility 
+- This web application is working on verious browsers.
+- This Web application is working on various Devices
+
+## Bugs
+
+### Fix Bugs
+- css file is added properly
+- css code is clean
+- Templates were added properly and fix bugs.
+- Adjust food and drink menu.
+- Adjust Base.html page
+
+### UnFixed Bugs
+- HTML files are not validate from the validator, but working properly.
+- Python Code is not tested properly but all the code is working properly.
+- Javascript Code is not tested properly but all the code is working properly.
+
+
 
 ### Deploying to Heroku
 
