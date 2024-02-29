@@ -207,6 +207,9 @@ The website comprises of the subsequent pages.
 - [W3C CSS Validator](static/docs/css-file-1.jpeg)
 - [W3C CSS Validator](static/docs/css-file-2.jpeg)
 
+### PEP8 Validation
+- PEP8 Validation Service used to check the code. 
+
 ### Testing User Stories from User Experience (UX) Section
 
 - As a newcomer to the website, I aim to effortlessly grasp the primary objective of the site and delve deeper into the details of the resturant.
