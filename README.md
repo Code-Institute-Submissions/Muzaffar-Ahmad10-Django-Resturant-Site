@@ -176,8 +176,30 @@ The website comprises of the subsequent pages.
 - The user is given the option to cancel their booking and is prompted to confirm their decision.
 - Upon canceling the table booking, the customer will be able to view the confirmation message at the top of the screen and will be required to confirm the cancellation.
 
+### Blog
+- The blog displays each post made by owner
+- Paginations is used to display posts,
 
+### Pagination
+- Pagination is used on the blog page. 
+### Menu 
+- The food menu displays all available foods in the resturant.
+- Items can be added from the admin panel in the backend by Owner.
+- Employees have the ability to create, edit, and remove food items through the admin panel.
+### Drinks Menu
+- The drinks menu displays all available drinks in the resturant.
+- Items can be added from the admin panel in the backend by Owner.
+- Employees have the ability to create, edit, and remove food items through the admin panel.
 
+### Contact Us
+- Registered users can DM staff via the message box
+- Contact information, including phone number, email, and address is provided.
+- The address is embedded in a Google Map for users to utilize.
+
+### Social Media Links
+- Logos are included on each page to provide social media links.
+- All links open in a new tab.
+- Displayed on all pages
 
 
 ## Testing
